@@ -1,0 +1,16 @@
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/utils/exceptions/ImageUploadException.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/model/BaseEntity.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/model/Machine.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/service/MachineServiceImpl.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/web/RootController.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/cart/ShoppingCartItem.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/cart/ShoppingCart.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/model/Cnc.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/model/Turret.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/model/Photo.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/web/MachineController.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/service/MachineService.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/web/MachineAdminController.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/model/Select.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/web/ControllerCart.java
+/home/paul/Documents/workspace-sts-3.8.0.RELEASE/Machine/src/main/java/by/eftech/webapp/model/List.java

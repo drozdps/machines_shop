@@ -1,0 +1,55 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+         http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+         http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<jdbc:initialize-database data-source="dataSource"
+		enabled="${database.init}">
+		<jdbc:script encoding="UTF-8" location="classpath:db/${jdbc.initLocation}" />
+	</jdbc:initialize-database>
+
+	<tx:annotation-driven />
+
+
+	<context:property-placeholder location="classpath:db/mysql.properties"
+		system-properties-mode="OVERRIDE" />
+
+	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
+		p:driverClassName="com.mysql.jdbc.Driver" p:url="${database.url}"
+		p:username="${database.username}" p:password="${database.password}" />
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>by.eftech.webapp.model.Machine</value>
+				<value>by.eftech.webapp.model.Cnc</value>
+				<value>by.eftech.webapp.model.List</value>
+				<value>by.eftech.webapp.model.Photo</value>
+				<value>by.eftech.webapp.model.Turret</value>
+			</list>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+		
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
+</beans>
