@@ -20,10 +20,18 @@
 
 	<context:property-placeholder location="classpath:db/mysql.properties"
 		system-properties-mode="OVERRIDE" />
+	<bean class="java.net.URI" id="dbUrl">
+    <constructor-arg value="#{systemEnvironment['DATABASE_URL']}"/>
+</bean>
 
-	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
+<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource">
+    <property name="url" value="#{ 'jdbc:mysql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
+    <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
+    <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
+</bean>
+	<!-- <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
 		p:driverClassName="com.mysql.jdbc.Driver" p:url="${database.url}"
-		p:username="${database.username}" p:password="${database.password}" />
+		p:username="${database.username}" p:password="${database.password}" /> -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
