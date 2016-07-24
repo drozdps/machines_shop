@@ -57,23 +57,23 @@ public class MachineServiceImpl implements MachineService {
 
     @Override
     public List<Machine> getAll() {
-        return sessionFactory.openSession().createQuery("FROM heroku_b95739e5ceeb5bf").list();
+        return sessionFactory.openSession().createQuery("FROM machine").list();
     }
 
 	@Override
 	public List<String> getMachineManufacturers() {
-		return sessionFactory.openSession().createQuery("SELECT DISTINCT manufacturer FROM heroku_b95739e5ceeb5bf").list();
+		return sessionFactory.openSession().createQuery("SELECT DISTINCT manufacturer FROM machine").list();
 	}
 
 	@Override
 	public List<String> getMachineLocations() {
-		return sessionFactory.openSession().createQuery("SELECT DISTINCT location FROM heroku_b95739e5ceeb5bf").list();
+		return sessionFactory.openSession().createQuery("SELECT DISTINCT location FROM machine").list();
 	}
 	private Integer sum=0;
 	private int m=0;
     @Override
     public List<Machine> getListMachine(Select s) {
-    	StringBuilder sql = new StringBuilder("SELECT * FROM heroku_b95739e5ceeb5bf");
+    	StringBuilder sql = new StringBuilder("SELECT * FROM machine");
     	System.out.println("k "+s.getMapMachineManufacturers().size());
     	sum=0;
     	m=0;
